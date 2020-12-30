@@ -80,10 +80,9 @@ export default class App extends Component {
 
 	startTimer = (id) => {
 		const {timer} = this.state;
-		const timerElem = timer.find(elem => elem.id === id);
-		clearInterval(timerElem.timerLeft);
+		
 		const timerFunc = setInterval(() => {
-			this.setState(({timer}) => { //eslint-disable-line
+			this.setState(() => { //eslint-disable-line
 				const newData = timer.map(elem => {
 					if (elem.id === id) {
 						if (elem.stop) {
